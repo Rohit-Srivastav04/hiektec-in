@@ -1,0 +1,16 @@
+Options -Indexes
+<Files "config.php">
+  Require all denied
+</Files>
+<FilesMatch "^(config\.example\.php)$">
+  Require all denied
+</FilesMatch>
+
+RewriteEngine On
+RewriteRule ^lib/ - [F,L]
+# Domain root hosts admin. Keep customer portal + binary downloads out of rewrite.
+RewriteRule ^portal(?:/|$) - [L]
+RewriteRule ^downloads(?:/|$) - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]
