@@ -1,5 +1,6 @@
 config.php
 portal/config.php
-.create_autologin_*.php
+_secrets_local.json
+_cfg_dump_*.php
 .DS_Store
 Thumbs.db
